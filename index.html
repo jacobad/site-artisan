@@ -4,15 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greenlifelightup - Refonte web pour artisans & PME</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kTcXn3YhXwQ2Z0+eBjkOPNz5fZcXH2X+5cJSxYmRJl5O1KU1PQnFiB4r7QkEK1KeYef4D2k4R8oZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="Greenlifelightup - Refonte de sites web pour artisans et PME. Sites modernes, performants et optimisés SEO." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/kTcXn3YhXwQ2Z0+eBjkOPNz5fZcXH2X+5cJSxYmRJl5O1KU1PQnFiB4r7QkEK1KeYef4D2k4R8oZw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     :root {
       --primary: #10b981;
       --primary-dark: #059669;
       --bg: #f0fdf4;
+      --bg-gradient: linear-gradient(135deg, #d9f7e2, #b2f1c6);
       --text: #111827;
       --muted: #6b7280;
+      --card: #ffffff;
     }
 
     * {
@@ -24,13 +33,14 @@
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
+      background-image: var(--bg-gradient);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
     }
 
     header {
-      background: white;
+      background: var(--card);
       padding: 2rem 1rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       text-align: center;
@@ -43,6 +53,8 @@
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .container {
@@ -53,14 +65,18 @@
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin: 2rem 0 1rem;
-      font-weight: 600;
+      font-weight: 700;
+      border-left: 6px solid var(--primary);
+      padding-left: 1rem;
+      color: var(--primary-dark);
     }
 
     p {
       margin-bottom: 1rem;
       color: var(--muted);
+      font-size: 1.1rem;
     }
 
     ul {
@@ -69,29 +85,43 @@
     }
 
     ul li::before {
-      content: "✔️ ";
+      content: '✔️ ';
       margin-right: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--primary);
     }
 
-    .cta {
+    .cta-wrapper {
+      background-color: var(--primary);
+      border-radius: 18px;
+      padding: 2rem 1rem;
       margin: 3rem 0;
       text-align: center;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      color: white;
     }
 
-    .cta a {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 12px;
+    .cta-wrapper p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
       font-weight: 600;
-      font-size: 1.1rem;
+    }
+
+    .cta-wrapper a {
+      display: inline-block;
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .cta a:hover {
-      background: var(--primary-dark);
+    .cta-wrapper a:hover {
+      background: #d1fae5;
       transform: scale(1.05);
     }
 
@@ -99,11 +129,13 @@
       width: 100%;
       height: 700px;
       border: none;
-      margin-top: 3rem;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
     }
 
     footer {
-      background: white;
+      background: var(--card);
       text-align: center;
       font-size: 0.9rem;
       color: var(--muted);
@@ -154,7 +186,9 @@
 
   <div class="container">
     <h2><i class="fas fa-triangle-exclamation"></i> Pourquoi envisager une refonte de site ?</h2>
-    <p>Votre site actuel est-il lent, peu lisible sur mobile ou mal référencé sur Google ? Une refonte permet de corriger tout cela en améliorant à la fois l’image de votre entreprise et votre visibilité.</p>
+    <p>
+      Votre site actuel est-il lent, peu lisible sur mobile ou mal référencé sur Google ? Une refonte permet de corriger tout cela en améliorant à la fois l’image de votre entreprise et votre visibilité.
+    </p>
 
     <h2><i class="fas fa-seedling"></i> Ce que Greenlifelightup vous apporte :</h2>
     <ul>
@@ -164,10 +198,16 @@
       <li>Un design qui inspire confiance et professionnalisme</li>
     </ul>
 
-    <h2><i class="fas fa-calendar-check"></i> Réservez une démonstration gratuite</h2>
-    <p>Visualisez concrètement l'impact qu'une refonte pourrait avoir sur votre entreprise. Choisissez votre créneau directement ci-dessous :</p>
+    <div class="cta-wrapper">
+      <p><i class="fas fa-calendar-check"></i> Réservez une démonstration gratuite</p>
+      <a href="https://calendly.com/greenlifelightup/30min" target="_blank" rel="noopener noreferrer">🌿 Réserver ma démo sur Calendly</a>
 
-    <iframe class="calendly" src="https://calendly.com/greenlifelightup/30min"></iframe>
+      <iframe
+        class="calendly"
+        src="https://calendly.com/greenlifelightup/30min"
+        title="Prise de rendez-vous Greenlifelightup"
+      ></iframe>
+    </div>
   </div>
 
   <footer>
