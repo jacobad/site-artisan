@@ -68,4 +68,220 @@
       font-size: 1.6rem;
       margin: 2rem 0 1rem;
       font-weight: 700;
-      border-left: 6px solid
+      border-left: 6px solid var(--primary);
+      padding-left: 1rem;
+      color: var(--primary-dark);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: '✔️ ';
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .cta-wrapper {
+      background-color: var(--primary);
+      border-radius: 18px;
+      padding: 2rem 1rem;
+      margin: 3rem 0;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      color: white;
+    }
+
+    .cta-wrapper p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .cta-wrapper a {
+      display: inline-block;
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-wrapper a:hover {
+      background: #d1fae5;
+      transform: scale(1.05);
+    }
+
+    iframe.calendly {
+      width: 100%;
+      height: 700px;
+      border: none;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    }
+
+    footer {
+      background: var(--card);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .icons {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .icons a {
+      margin: 0 0.5rem;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .icons a:hover {
+      color: var(--primary-dark);
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Media Queries for Responsiveness */
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .cta-wrapper p {
+        font-size: 1.1rem;
+      }
+
+      .cta-wrapper a {
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
+      }
+
+      iframe.calendly {
+        height: 600px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        margin: 1rem 0 0.5rem;
+        padding-left: 0.8rem;
+        border-left-width: 4px;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .cta-wrapper {
+        padding: 1.5rem 1rem;
+        margin: 2rem 0;
+      }
+
+      .cta-wrapper p {
+        font-size: 1rem;
+      }
+
+      .cta-wrapper a {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+      }
+
+      iframe.calendly {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Greenlifelightup</h1>
+    <p>Donnez une nouvelle vie à votre site : moderne, efficace, et orienté résultats.</p>
+  </header>
+
+  <div class="container">
+    <h2><i class="fas fa-triangle-exclamation"></i> Pourquoi envisager une refonte de site ?</h2>
+    <p>
+      Votre site actuel est-il lent, peu lisible sur mobile ou mal référencé sur Google ? Une refonte permet de corriger tout cela en améliorant à la fois l’image de votre entreprise et votre visibilité.
+    </p>
+
+    <h2><i class="fas fa-seedling"></i> Ce que Greenlifelightup vous apporte :</h2>
+    <ul>
+      <li>Un site repensé selon les codes actuels du web</li>
+      <li>Une structure optimisée pour le SEO</li>
+      <li>Une navigation fluide, mobile-first</li>
+      <li>Un design qui inspire confiance et professionnalisme</li>
+    </ul>
+
+    <div class="cta-wrapper">
+      <p><i class="fas fa-calendar-check"></i> Réservez une démonstration gratuite</p>
+      <a href="https://calendly.com/greenlifelightup/30min" target="_blank" rel="noopener noreferrer">🌿 Réserver ma démo sur Calendly</a>
+
+      <iframe
+        class="calendly"
+        src="https://calendly.com/greenlifelightup/30min"
+        title="Prise de rendez-vous Greenlifelightup"
+      ></iframe>
+    </div>
+  </div>
+
+  <footer>
+    📞 06 52 15 42 06 – ✉️ contact@greenlifelightup.fr<br />
+    <div class="icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fas fa-globe"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
