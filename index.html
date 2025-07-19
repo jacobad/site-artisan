@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenlifelightup - Refonte web pour artisans & PME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kTcXn3YhXwQ2Z0+eBjkOPNz5fZcXH2X+5cJSxYmRJl5O1KU1PQnFiB4r7QkEK1KeYef4D2k4R8oZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --bg: #f0fdf4;
+      --text: #111827;
+      --muted: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: white;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transform: translateY(-20px);
+      animation: fadeInSlide 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      animation: fadeIn 1.2s ease both;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: "✔️ ";
+      margin-right: 0.5rem;
+    }
+
+    .cta {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: white;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .icons {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .icons a {
+      margin: 0 0.5rem;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .icons a:hover {
+      color: var(--primary-dark);
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Greenlifelightup</h1>
+    <p>Donnez une nouvelle vie à votre site : moderne, efficace, et orienté résultats.</p>
+  </header>
+
+  <div class="container">
+    <h2><i class="fas fa-triangle-exclamation"></i> Pourquoi envisager une refonte de site ?</h2>
+    <p>Votre site actuel est-il lent, peu lisible sur mobile ou mal référencé sur Google ? Une refonte permet de corriger tout cela en améliorant à la fois l’image de votre entreprise et votre visibilité.</p>
+
+    <h2><i class="fas fa-seedling"></i> Ce que Greenlifelightup vous apporte :</h2>
+    <ul>
+      <li>Un site repensé selon les codes actuels du web</li>
+      <li>Une structure optimisée pour le SEO</li>
+      <li>Une navigation fluide, mobile-first</li>
+      <li>Un design qui inspire confiance et professionnalisme</li>
+    </ul>
+
+    <h2><i class="fas fa-calendar-check"></i> Une démonstration gratuite ?</h2>
+    <p>Je vous propose une démonstration gratuite de 15 minutes pour visualiser le potentiel d’une refonte sur votre activité.</p>
+
+    <div class="cta">
+      <a href="https://calendly.com/greenlifelightup/30min" target="_blank">🌿 Réserver ma démo sur Calendly</a>
+    </div>
+  </div>
+
+  <footer>
+    📞 06 52 15 42 06 – ✉️ contact@greenlifelightup.fr<br />
+    <div class="icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fas fa-globe"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
