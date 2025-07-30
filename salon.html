@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Élégance - Coiffure & Beauté</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e91e63;
+            --primary-dark: #c2185b;
+            --secondary: #ff4081;
+            --accent: #ffc107;
+            --bg: #fdf2f8;
+            --text: #1a202c;
+            --text-light: #718096;
+            --white: #ffffff;
+            --success: #48bb78;
+            --gradient: linear-gradient(135deg, #e91e63 0%, #ff4081 100%);
+            --shadow: 0 10px 25px rgba(233, 30, 99, 0.15);
+            --shadow-lg: 0 20px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .rdv-btn {
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rdv-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20 Z" fill="white" opacity="0.05"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .service-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .service-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .service-features li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        .btn-service {
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-service:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--white);
+            padding: 5rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 0.9;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 5rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .team-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .team-specialties {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-specialties li {
+            background: var(--bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 0.2rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        /* Booking Modal */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .booking-content {
+            background: var(--white);
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .close-booking {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .booking-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .time-slot {
+            padding: 0.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .time-slot:hover,
+        .time-slot.selected {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .time-slot.unavailable {
+            background: #f1f5f9;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .submit-booking {
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-booking:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .instagram-item {
+            aspect-ratio: 1;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .team-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">✨ Salon Élégance</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#gallery" class="nav-link">Galerie</a></li>
+                    <li><a href="#team" class="nav-link">Notre Équipe</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="rdv-btn" onclick="openBooking()">
+                <i class="fas fa-calendar-alt"></i>
+                Prendre RDV
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Révélez Votre Beauté</h1>
+            <p>Salon de coiffure & institut de beauté premium. Découvrez nos prestations sur-mesure dans un cadre d'exception.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" onclick="openBooking()">
+                    <i class="fas fa-scissors"></i>
+                    Réserver en ligne
+                </a>
+                <a href="#services" class="btn-secondary">
+                    <i class="fas fa-star"></i>
+                    Nos prestations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Nos Prestations</h2>
+            <p class="section-subtitle">Des soins d'exception pour sublimer votre beauté naturelle</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Coupe & Coiffage</h3>
+                            <div class="service-price">À partir de 45€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Coupe personnalisée selon votre morphologie et style de vie. Shampoing, coupe, brushing inclus.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Consultation style gratuite</li>
+                        <li><i class="fas fa-check"></i> Produits professionnels haut de gamme</li>
+                        <li><i class="fas fa-check"></i> Conseils d'entretien personnalisés</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('coupe')">Réserver</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Coloration & Mèches</h3>
+                            <div class="service-price">À partir de 80€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Colorations naturelles ou fantaisie, mèches, balayage. Techniques modernes pour un résultat parfait.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Gamme de couleurs exclusive</li>
+                        <li><i class="fas fa-check"></i> Techniques de balayage tendance</li>
+                        <li><i class="fas fa-check"></i> Soins réparateurs inclus</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('coloration')">Réserver</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Soins Capillaires</h3>
+                            <div class="service-price">À partir de 35€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Soins réparateurs, hydratants ou nourrissants. Masques sur-mesure pour tous types de cheveux.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Diagnostic capillaire gratuit</li>
+                        <li><i class="fas fa-check"></i> Soins personnalisés</li>
+                        <li><i class="fas fa-check"></i> Massage relaxant du cuir chevelu</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('soins')">Réserver</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Manucure & Beauté</h3>
+                            <div class="service-price">À partir de 25€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Manucure, pose de vernis, extension d'ongles. Soins des mains complets dans un espace dédié.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Vernis semi-permanent</li>
+                        <li><i class="fas fa-check"></i> Nail art personnalisé</li>
+                        <li><i class="fas fa-check"></i> Soins des cuticules</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('manucure')">Réserver</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Forfait Mariée</h3>
+                            <div class="service-price">À partir de 200€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Prestation complète pour votre jour J. Essai coiffure, maquillage, manucure. Service à domicile possible.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Essai gratuit</li>
+                        <li><i class="fas fa-check"></i> Maquillage professionnel</li>
+                        <li><i class="fas fa-check"></i> Service à domicile</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('mariee')">Réserver</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Extensions & Pose</h3>
+                            <div class="service-price">À partir de 150€</div>
+                        </div>
+                    </div>
+                    <p class="service-description">Extensions naturelles ou synthétiques. Poses à chaud, à froid ou clips. Cheveux européens premium.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cheveux 100% naturels</li>
+                        <li><i class="fas fa-check"></i> Pose invisible</li>
+                        <li><i class="fas fa-check"></i> Entretien inclus</li>
+                    </ul>
+                    <button class="btn-service" onclick="openBooking('extensions')">Réserver</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galerie de nos Réalisations</h2>
+            <p class="section-subtitle">Découvrez quelques-unes de nos plus belles créations</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Coupe moderne">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=400&q=80" alt="Coloration blonde">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=400&q=80" alt="Balayage">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=400&q=80" alt="Coiffure de soirée">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80" alt="Manucure">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=400&q=80" alt="Extensions">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Notre Équipe d'Experts</h2>
+            <p class="section-subtitle">Des professionnels passionnés à votre service</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-user-crown"></i>
+                    </div>
+                    <h3 class="team-name">Sophie Martin</h3>
+                    <p class="team-role">Directrice & Coiffeuse Expert</p>
+                    <ul class="team-specialties">
+                        <li>Coupe Tendance</li>
+                        <li>Coloration</li>
+                        <li>Balayage</li>
+                    </ul>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">15 ans d'expérience - Formation L'Oréal Professionnel</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="team-name">Emma Dubois</h3>
+                    <p class="team-role">Coloriste & Styliste</p>
+                    <ul class="team-specialties">
+                        <li>Coloration</li>
+                        <li>Mèches</li>
+                        <li>Soins</li>
+                    </ul>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">Spécialiste couleur - Certification Wella</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="team-name">Léa Rodriguez</h3>
+                    <p class="team-role">Esthéticienne & Nail Artist</p>
+                    <ul class="team-specialties">
+                        <li>Manucure</li>
+                        <li>Nail Art</li>
+                        <li>Extensions</li>
+                    </ul>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">Diplômée CAP Esthétique - Formation OPI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-content">
+            <button class="close-booking" onclick="closeBooking()">×</button>
+            <div class="booking-header">
+                <h2><i class="fas fa-calendar-heart sparkle"></i> Réservation en Ligne</h2>
+                <p style="color: var(--text-light);">Choisissez votre créneau et laissez-nous vous sublimer</p>
+            </div>
+            
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prenom">Prénom *</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telephone">Téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">Prestation souhaitée *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choisir une prestation</option>
+                            <option value="coupe">Coupe & Coiffage (45€)</option>
+                            <option value="coloration">Coloration & Mèches (80€)</option>
+                            <option value="soins">Soins Capillaires (35€)</option>
+                            <option value="manucure">Manucure & Beauté (25€)</option>
+                            <option value="mariee">Forfait Mariée (200€)</option>
+                            <option value="extensions">Extensions & Pose (150€)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="coiffeuse">Coiffeuse préférée</label>
+                        <select id="coiffeuse" name="coiffeuse">
+                            <option value="">Pas de préférence</option>
+                            <option value="sophie">Sophie Martin</option>
+                            <option value="emma">Emma Dubois</option>
+                            <option value="lea">Léa Rodriguez</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Date souhaitée *</label>
+                    <input type="date" id="date" name="date" required min="">
+                </div>
+                
+                <div class="form-group">
+                    <label>Créneaux disponibles</label>
+                    <div class="time-slots" id="timeSlots">
+                        <div class="time-slot" data-time="09:00">09:00</div>
+                        <div class="time-slot" data-time="09:30">09:30</div>
+                        <div class="time-slot" data-time="10:00">10:00</div>
+                        <div class="time-slot unavailable" data-time="10:30">10:30</div>
+                        <div class="time-slot" data-time="11:00">11:00</div>
+                        <div class="time-slot" data-time="11:30">11:30</div>
+                        <div class="time-slot" data-time="14:00">14:00</div>
+                        <div class="time-slot unavailable" data-time="14:30">14:30</div>
+                        <div class="time-slot" data-time="15:00">15:00</div>
+                        <div class="time-slot" data-time="15:30">15:30</div>
+                        <div class="time-slot" data-time="16:00">16:00</div>
+                        <div class="time-slot" data-time="16:30">16:30</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Demandes particulières</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Précisez vos souhaits, longueur actuelle, allergies..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-booking">
+                    <i class="fas fa-heart"></i> Confirmer mon rendez-vous
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Salon Élégance</h3>
+                    <p>Votre salon de coiffure & institut de beauté de référence. Un cadre d'exception pour des prestations sur-mesure.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horaires & Contact</h3>
+                    <p><i class="fas fa-clock"></i> Mardi - Samedi: 9h00 - 19h00</p>
+                    <p><i class="fas fa-clock"></i> Dimanche: 9h00 - 17h00</p>
+                    <p><i class="fas fa-ban"></i> Fermé le lundi</p>
+                    <p><i class="fas fa-phone"></i> 01 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@salon-elegance.fr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Beauté<br>75001 Paris</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services Premium</h3>
+                    <p><a href="#">Coupe & Coiffage</a></p>
+                    <p><a href="#">Coloration Expert</a></p>
+                    <p><a href="#">Soins Capillaires</a></p>
+                    <p><a href="#">Manucure & Nail Art</a></p>
+                    <p><a href="#">Forfaits Mariée</a></p>
+                    <p><a href="#">Extensions Premium</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <p>Découvrez nos dernières créations sur Instagram</p>
+                    <div class="instagram-feed">
+                        <div class="instagram-item"><i class="fab fa-instagram"></i></div>
+                        <div class="instagram-item"><i class="fas fa-cut"></i></div>
+                        <div class="instagram-item"><i class="fas fa-palette"></i></div>
+                        <div class="instagram-item"><i class="fas fa-gem"></i></div>
+                        <div class="instagram-item"><i class="fas fa-crown"></i></div>
+                        <div class="instagram-item"><i class="fas fa-sparkles"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; border-top: 1px solid #374151; padding-top: 2rem;">
+                <p>&copy; 2024 Salon Élégance - Tous droits réservés</p>
+                <p style="color: var(--secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Site créé par <strong>Greenlifelightup</strong> - Refonte web pour artisans & PME
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            dateInput.min = tomorrow.toISOString().split('T')[0];
+        });
+
+        // Open booking modal
+        function openBooking(serviceType = '') {
+            const modal = document.getElementById('bookingModal');
+            const serviceSelect = document.getElementById('service');
+            
+            if (serviceType) {
+                serviceSelect.value = serviceType;
+            }
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close booking modal
+        function closeBooking() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBooking();
+            }
+        });
+
+        // Time slot selection
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            slot.addEventListener('click', function() {
+                if (this.classList.contains('unavailable')) return;
+                
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedTime = document.querySelector('.time-slot.selected');
+            if (!selectedTime) {
+                alert('Veuillez sélectionner un créneau horaire.');
+                return;
+            }
+            
+            const submitBtn = document.querySelector('.submit-booking');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show processing state
+            submitBtn.innerHTML = '<i class="fas fa-heart fa-beat"></i> Réservation en cours...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            data.time = selectedTime.dataset.time;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Success state
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Rendez-vous confirmé !';
+                submitBtn.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    // Show success message
+                    alert(`✨ Votre rendez-vous est confirmé !
+
+👤 ${data.prenom} ${data.nom}
+💄 ${document.querySelector('#service option:checked').text}
+📅 ${new Date(data.date).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+⏰ ${data.time}
+💅 ${data.coiffeuse ? document.querySelector('#coiffeuse option:checked').text : 'Coiffeuse assignée automatiquement'}
+
+📧 Un email de confirmation vous sera envoyé.
+📲 SMS de rappel la veille de votre RDV.
+
+Nous avons hâte de vous accueillir ! ✨`);
+                    
+                    // Reset form and close modal
+                    this.reset();
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                    closeBooking();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 1500);
+            }, 2500);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Phone number formatting
+        document.getElementById('telephone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 10) {
+                value = value.substring(0, 10);
+                value = value.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+            }
+            e.target.value = value;
+        });
+
+        // Gallery lightbox effect
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const enlargedImg = document.createElement('img');
+                enlargedImg.src = img.src;
+                enlargedImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 15px;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                `;
+                
+                overlay.appendChild(enlargedImg);
+                document.body.appendChild(overlay);
+                
+                overlay.addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+            });
+        });
+
+        // Add sparkle animation to random elements
+        setInterval(() => {
+            const sparkleElements = document.querySelectorAll('.service-icon, .team-photo');
+            const randomElement = sparkleElements[Math.floor(Math.random() * sparkleElements.length)];
+            randomElement.classList.add('sparkle');
+            setTimeout(() => {
+                randomElement.classList.remove('sparkle');
+            }, 2000);
+        }, 5000);
+
+        // Update time slots based on date (simulate real availability)
+        document.getElementById('date').addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const dayOfWeek = selectedDate.getDay();
+            
+            // Reset all slots
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('unavailable', 'selected');
+            });
+            
+            // Simulate different availability based on day
+            if (dayOfWeek === 6) { // Saturday
+                document.querySelector('[data-time="10:30"]').classList.add('unavailable');
+                document.querySelector('[data-time="14:30"]').classList.add('unavailable');
+                document.querySelector('[data-time="16:30"]').classList.add('unavailable');
+            } else if (dayOfWeek === 0) { // Sunday
+                document.querySelector('[data-time="16:00"]').classList.add('unavailable');
+                document.querySelector('[data-time="16:30"]').classList.add('unavailable');
+            }
+        });
+    </script>
+</body>
+</html>
