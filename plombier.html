@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plomberie Expert - Services de plomberie professionnel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .urgence-btn {
+            background: var(--danger);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .urgence-btn:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .urgence-btn i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: #d97706;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-devis {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-devis:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Zone Coverage */
+        .zone-coverage {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .zone-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .zone-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Devis Form Modal */
+        .devis-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .devis-content {
+            background: var(--white);
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-devis {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .urgence-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .urgence-checkbox {
+            width: auto !important;
+        }
+
+        .urgence-label {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .submit-devis {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-devis:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .processing {
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">🔧 Plomberie Expert</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#zone" class="nav-link">Zone d'intervention</a></li>
+                    <li><a href="#testimonials" class="nav-link">Avis clients</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:0123456789" class="urgence-btn">
+                <i class="fas fa-phone"></i>
+                Urgence 24h/7j
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Plomberie d'Urgence & Services Professionnels</h1>
+            <p>Intervention rapide, devis gratuit et tarifs transparents. Votre plombier de confiance depuis plus de 15 ans.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" onclick="openDevis()">
+                    <i class="fas fa-calculator"></i>
+                    Devis Gratuit en Ligne
+                </a>
+                <a href="tel:0123456789" class="btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Appeler Maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services & Tarifs</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="service-title">Dépannage Urgence</h3>
+                    <div class="service-price">À partir de 80€</div>
+                    <p class="service-description">Intervention en moins de 2h, 24h/7j. Fuite, canalisation bouchée, panne chaudière.</p>
+                    <button class="btn-devis" onclick="openDevis('urgence')">Demander un devis</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-toilet"></i>
+                    </div>
+                    <h3 class="service-title">Installation Sanitaires</h3>
+                    <div class="service-price">À partir de 150€</div>
+                    <p class="service-description">Pose WC, lavabo, douche, baignoire. Travail soigné avec garantie 2 ans.</p>
+                    <button class="btn-devis" onclick="openDevis('installation')">Demander un devis</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="service-title">Chauffage & Chaudière</h3>
+                    <div class="service-price">À partir de 120€</div>
+                    <p class="service-description">Entretien, réparation, installation. Gaz, électrique, fioul. Agrément tous constructeurs.</p>
+                    <button class="btn-devis" onclick="openDevis('chauffage')">Demander un devis</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="service-title">Rénovation Salle de Bain</h3>
+                    <div class="service-price">Devis sur mesure</div>
+                    <p class="service-description">Rénovation complète, carrelage, plomberie. Projet clé en main avec finitions soignées.</p>
+                    <button class="btn-devis" onclick="openDevis('renovation')">Demander un devis</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="service-title">Recherche de Fuite</h3>
+                    <div class="service-price">À partir de 100€</div>
+                    <p class="service-description">Détection électronique sans casse. Rapport détaillé et réparation immédiate possible.</p>
+                    <button class="btn-devis" onclick="openDevis('fuite')">Demander un devis</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Débouchage Canalisation</h3>
+                    <div class="service-price">À partir de 90€</div>
+                    <p class="service-description">Débouchage haute pression, inspection caméra. Efficace sur tous types de bouchons.</p>
+                    <button class="btn-devis" onclick="openDevis('debouchage')">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zone Coverage -->
+    <section class="zone-coverage" id="zone">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Zone d'Intervention</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Nous intervenons dans un rayon de 30km autour de Paris</p>
+            
+            <div class="zone-grid">
+                <div class="zone-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Paris Centre</h3>
+                    <p>1er au 20ème arrondissement</p>
+                </div>
+                <div class="zone-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Proche Banlieue</h3>
+                    <p>Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne</p>
+                </div>
+                <div class="zone-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Intervention</h3>
+                    <p>Sous 2h en urgence, RDV sous 48h</p>
+                </div>
+                <div class="zone-item">
+                    <i class="fas fa-car"></i>
+                    <h3>Déplacement</h3>
+                    <p>Gratuit dans Paris, forfait banlieue</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Avis de nos Clients</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">Intervention très rapide pour une fuite d'urgence. Travail propre et prix honnête. Je recommande vivement !</p>
+                    <div class="testimonial-author">Marie L. - Paris 15ème</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">Rénovation complète de ma salle de bain. Travail parfait, dans les temps et le budget. Très professionnel.</p>
+                    <div class="testimonial-author">Thomas R. - Boulogne</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">Dépannage chaudière un dimanche soir. Arrivé en 1h30, problème résolu rapidement. Service au top !</p>
+                    <div class="testimonial-author">Sophie M. - Vincennes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devis Modal -->
+    <div class="devis-modal" id="devisModal">
+        <div class="devis-content">
+            <button class="close-devis" onclick="closeDevis()">×</button>
+            <h2 style="color: var(--primary); margin-bottom: 2rem; text-align: center;">
+                <i class="fas fa-calculator"></i> Demande de Devis Gratuit
+            </h2>
+            
+            <form id="devisForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom complet *</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="adresse">Adresse d'intervention *</label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">Type de service *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Sélectionner un service</option>
+                            <option value="urgence">Dépannage d'urgence</option>
+                            <option value="installation">Installation sanitaires</option>
+                            <option value="chauffage">Chauffage & Chaudière</option>
+                            <option value="renovation">Rénovation salle de bain</option>
+                            <option value="fuite">Recherche de fuite</option>
+                            <option value="debouchage">Débouchage canalisation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date souhaitée</label>
+                        <input type="date" id="date" name="date" min="">
+                    </div>
+                </div>
+                
+                <div class="urgence-toggle">
+                    <input type="checkbox" id="urgence" name="urgence" class="urgence-checkbox">
+                    <label for="urgence" class="urgence-label">
+                        <i class="fas fa-exclamation-triangle"></i> Intervention d'urgence (sous 2h)
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description du problème</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Décrivez votre problème ou vos besoins..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-devis">
+                    <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Plomberie Expert</h3>
+                    <p>Votre plombier de confiance depuis 15 ans. Intervention rapide, travail soigné, tarifs transparents.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> 01 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@plomberieexpert.fr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Plomberie<br>75001 Paris</p>
+                    <p><i class="fas fa-clock"></i> Urgences 24h/7j</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p><a href="#">Dépannage urgence</a></p>
+                    <p><a href="#">Installation sanitaires</a></p>
+                    <p><a href="#">Chauffage & Chaudière</a></p>
+                    <p><a href="#">Rénovation salle de bain</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <p><a href="#">Devis gratuit</a></p>
+                    <p><a href="#">Zone d'intervention</a></p>
+                    <p><a href="#">Garanties</a></p>
+                    <p>
