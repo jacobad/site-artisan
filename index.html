@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Greenlifelightup : refonte de site web pour artisans et PME - design moderne, SEO optimisé, responsive. Découvrez nos templates e-commerce et solutions clé en main." />
+  <meta name="keywords" content="refonte site web, artisan, PME, SEO, responsive, site vitrine, e-commerce, templates, boulangerie, plombier, salon" />
+  <meta name="author" content="Greenlifelightup" />
+  <title>Greenlifelightup - Templates Modernes & Refonte Web pour Artisans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kTcXn3YhXwQ2Z0+eBjkOPNz5fZcXH2X+5cJSxYmRJl5O1KU1PQnFiB4r7QkEK1KeYef4D2k4R8oZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --secondary: #3b82f6;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --bg-dark: #1e293b;
+      --text: #0f172a;
+      --text-light: #64748b;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      --shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+      --shadow-lg: 0 20px 40px rgba(16, 185, 129, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header Moderne */
+    .header {
+      background: var(--white);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .contact-btn {
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Hero Section Moderne */
+    .hero {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="2" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="2" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="3" fill="white" opacity="0.1"/></svg>') repeat;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2rem;
+      border: 2px solid var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--white);
+      padding: 3rem 0;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .feature-description {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Templates Portfolio */
+    .portfolio {
+      background: var(--white);
+      padding: 5rem 0;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .portfolio-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .project-description {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .project-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .project-features li i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .demo-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .btn-demo {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .status-new {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: var(--white);
+      animation: pulse 2s infinite;
+    }
+
+    /* Process Section */
+    .process {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-number {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .process-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .process-description {
+      color: var(--text-light);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .calendly {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 20px;
+      margin-top: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #94a3b8;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .feature-card,
+    .project-card,
+    .process-step {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo">✨ Greenlifelightup</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#features" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Templates</a></li>
+          <li><a href="#process" class="nav-link">Processus</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="contact-btn">
+        <i class="fas fa-calendar-check"></i>
+        Démo Gratuite
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Templates Modernes & Refonte Web pour Artisans</h1>
+      <p class="subtitle">Transformez votre présence en ligne avec nos solutions e-commerce et sites professionnels clé en main. Design moderne, fonctionnalités avancées, résultats garantis.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn-primary">
+          <i class="fas fa-rocket"></i>
+          Découvrir nos Templates
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <i class="fas fa-phone"></i>
+          Démo Gratuite
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Templates Fonctionnels</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Mobile Responsive</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Fonctionnalités Avancées</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">Déploiement Rapide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Pourquoi Choisir Greenlifelightup ?</h2>
+      <p class="section-subtitle">Des solutions web modernes adaptées aux besoins spécifiques de votre secteur d'activité</p>
+      
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3 class="feature-title">E-commerce Intégré</h3>
+          <p class="feature-description">Panier d'achat, paiement Stripe/PayPal, gestion des stocks en temps réel. Vendez en ligne dès le premier jour.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="feature-title">Réservation en Ligne</h3>
+          <p class="feature-description">Système de prise de rendez-vous automatisé, créneaux personnalisables, confirmations automatiques.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3 class="feature-title">Devis Automatisés</h3>
+          <p class="feature-description">Formulaires intelligents, calcul automatique des tarifs, demandes d'urgence prioritaires.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">Mobile-First</h3>
+          <p class="feature-description">Design responsive optimisé pour mobile, chargement ultra-rapide, expérience utilisateur parfaite.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="feature-title">SEO Optimisé</h3>
+          <p class="feature-description">Structure optimisée pour Google, balises méta parfaites, amélioration du référencement naturel.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="feature-title">Clé en Main</h3>
+          <p class="feature-description">Installation complète, formation incluse, support technique. Votre site prêt à l'emploi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Templates -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <h2 class="portfolio-title">Nos Templates Professionnels</h2>
+        <p class="section-subtitle">Découvrez nos solutions sectorielles avec démos fonctionnelles</p>
+      </div>
+      
+      <div class="portfolio-grid">
+        <!-- Template Boulangerie -->
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="E-commerce Boulangerie" />
+            <div class="project-badge">E-COMMERCE</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">🥖 E-commerce Boulangerie</h3>
+            <p class="project-description">Solution e-commerce complète pour boulangeries et pâtisseries. Commandes en ligne, paiement sécurisé et gestion des stocks.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> Panier d'achat fonctionnel</li>
+              <li><i class="fas fa-check"></i> Paiement Stripe & PayPal</li>
+              <li><i class="fas fa-check"></i> Gestion stocks temps réel</li>
+              <li><i class="fas fa-check"></i> Catalogue produits par catégorie</li>
+              <li><i class="fas fa-check"></i> Interface d'administration</li>
+            </ul>
+            <div class="demo-actions">
+              <a href="boulangerie.html" target="_blank" class="btn-demo">
+                <i class="fas fa-eye"></i> Voir la Démo Interactive
+              </a>
+              <span class="status-badge status-new">✨ COMPLET - Fonctionnel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template Plombier -->
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=400&q=80" alt="Site Plombier Professionnel" />
+            <div class="project-badge">SERVICES</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">🔧 Plomberie Expert</h3>
+            <p class="project-description">Site professionnel pour artisans plombiers avec devis en ligne, urgence 24h/7j et zone d'intervention.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> Devis en ligne automatisé</li>
+              <li><i class="fas fa-check"></i> Mode urgence 24h/7j</li>
+              <li><i class="fas fa-check"></i> Tarifs transparents affichés</li>
+              <li><i class="fas fa-check"></i> Zone d'intervention cartographiée</li>
+              <li><i class="fas fa-check"></i> Bouton d'appel flottant</li>
+            </ul>
+            <div class="demo-actions">
+              <a href="plombier.html" target="_blank" class="btn-demo">
+                <i class="fas fa-eye"></i> Voir la Démo Interactive
+              </a>
+              <span class="status-badge status-new">✨ NOUVEAU - Devis en ligne</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template Salon -->
+        <div class="project-card animate-on-scroll">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Salon de Coiffure Premium" />
+            <div class="project-badge">BEAUTÉ</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">💄 Salon Élégance</h3>
+            <p class="project-description">Site premium pour salons de coiffure avec réservation en ligne, galerie de réalisations et présentation de l'équipe.</p>
+            <ul class="project-features">
+              <li><i class="fas fa-check"></i> Réservation RDV en ligne</li>
+              <li><i class="fas fa-check"></i> Créneaux horaires interactifs</li>
+              <li><i class="fas fa-check"></i> Galerie photos avec lightbox</li>
+              <li><i class="fas fa-check"></i> Présentation équipe d'experts</li>
+              <li><i class="fas fa-check"></i> Forfaits mariée & extensions</li>
+            </ul>
+            <div class="demo-actions">
+              <a href="salon.html" target="_blank" class="btn-demo">
+                <i class="fas fa-eye"></i> Voir la Démo Interactive
+              </a>
+              <span class="status-badge status-new">✨ NOUVEAU - Réservation RDV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process" id="process">
+    <div class="container">
+      <h2 class="section-title">Notre Processus de Refonte</h2>
+      <p class="section-subtitle">Une méthode éprouvée pour transformer votre présence digitale</p>
+      
+      <div class="process-grid">
+        <div class="process-step animate-on-scroll">
+          <div class="process-number">1</div>
+          <h3 class="process-title">Analyse & Audit</h3>
+          <p class="process-description">Audit complet de votre site actuel, analyse de la concurrence et définition des objectifs.</p>
+        </div>
+        
+        <div class="process-step animate-on-scroll">
+          <div class="process-number">2</div>
+          <h3 class="process-title">Template & Personnalisation</h3>
+          <p class="process-description">Sélection du template adapté à votre secteur et personnalisation selon votre charte graphique.</p>
+        </div>
+        
+        <div class="process-step animate-on-scroll">
+          <div class="process-number">3</div>
+          <h3 class="process-title">Développement & Intégration</h3>
+          <p class="process-description">Intégration de vos contenus, configuration des fonctionnalités et optimisation SEO.</p>
+        </div>
+        
+        <div class="process-step animate-on-scroll">
+          <div class="process-number">4</div>
+          <h3 class="process-title">Tests & Formation</h3>
+          <p class="process-description">Tests complets sur tous supports, formation à l'administration et mise en ligne.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2><i class="fas fa-calendar-check"></i> Réservez votre Démonstration Gratuite</h2>
+      <p>Découvrez comment nos templates peuvent transformer votre activité. Démonstration personnalisée en 30 minutes.</p>
+
+      <iframe class="calendly" src="https://calendly.com/greenlifelightup/30min" title="Calendrier Greenlifelightup - Démonstration gratuite"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Greenlifelightup</h3>
+          <p>Spécialiste de la refonte web pour artisans et PME. Solutions modernes, templates fonctionnels, résultats garantis.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Nos Templates</h3>
+          <p><a href="boulangerie.html">E-commerce Boulangerie</a></p>
+          <p><a href="plombier.html">Site Plombier Expert</a></p>
+          <p><a href="salon.html">Salon de Coiffure Premium</a></p>
+          <p><a href="#">Restaurant (bientôt)</a></p>
+          <p><a href="#">Auto-école (bientôt)</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Services</h3>
+          <p><a href="#">Refonte de site web</a></p>
+          <p><a href="#">Création e-commerce</a></p>
+          <p><a href="#">Optimisation SEO</a></p>
+          <p><a href="#">Formation & Support</a></p>
+          <p><a href="#">Maintenance</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fas fa-phone"></i> 06 52 15 42 06</p>
+          <p><i class="fas fa-envelope"></i> contact@greenlifelightup.fr</p>
+          <p><i class="fas fa-calendar"></i> Démo gratuite en 30min</p>
+          <p><i class="fas fa-clock"></i> Réponse sous 2h</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem; border-top: 1px solid #374151; padding-top: 2rem;">
+        <p>&copy; 2024 Greenlifelightup - Tous droits réservés</p>
+        <p style="color: var(--primary); font-size: 0.9rem; margin-top: 0.5rem;">
+          🚀 <strong>Templates modernes pour artisans ambitieux</strong> - Refonte web professionnelle
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animate elements on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('animated');
+        }
+      });
+    }
+
+    // Run animation on scroll and on load
+    window.addEventListener('scroll', animateOnScroll);
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+    // Counter animation for stats
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      
+      counters.forEach(counter => {
+        const target = counter.textContent;
+        const increment = target.includes('%') ? 5 : 1;
+        const duration = 2000;
+        const step = duration / (parseInt(target) / increment);
+        
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= parseInt(target)) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = current + (target.includes('%') ? '%' : '');
+          }
+        }, step);
+      });
+    }
+
+    // Run counter animation when stats section is visible
+    let statsAnimated = false;
+    function checkStatsAnimation() {
+      const statsSection = document.querySelector('.stats');
+      const rect = statsSection.getBoundingClientRect();
+      
+      if (rect.top < window.innerHeight && rect.bottom > 0 && !statsAnimated) {
+        animateCounters();
+        statsAnimated = true;
+      }
+    }
+
+    window.addEventListener('scroll', checkStatsAnimation);
+    document.addEventListener('DOMContentLoaded', checkStatsAnimation);
+
+    // Add floating effect to hero elements
+    function addFloatingEffect() {
+      const heroElements = document.querySelectorAll('.hero-content > *');
+      
+      heroElements.forEach((element, index) => {
+        element.style.animation = `fadeInUp 1s ease-out ${index * 0.2}s both`;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', addFloatingEffect);
+
+    // Add parallax effect to hero background
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      const rate = scrolled * -0.5;
+      
+      if (hero) {
+        hero.style.backgroundPosition = `center ${rate}px`;
+      }
+    });
+
+    // Add hover effect for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.boxShadow = '0 25px 50px rgba(16, 185, 129, 0.25)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.boxShadow = '';
+      });
+    });
+
+    // Add click tracking for demo buttons (for analytics)
+    document.querySelectorAll('.btn-demo').forEach(button => {
+      button.addEventListener('click', function() {
+        const templateName = this.href.split('/').pop().split('.')[0];
+        console.log(`Demo clicked: ${templateName}`);
+        
+        // You can add Google Analytics tracking here
+        // gtag('event', 'demo_click', {
+        //   'template_name': templateName
+        // });
+      });
+    });
+
+    // Add loading animation
+    window.addEventListener('load', function() {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s ease-in-out';
+      
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+
+    // Mobile menu toggle (if needed later)
+    function toggleMobileMenu() {
+      const navMenu = document.querySelector('.nav-menu');
+      navMenu.classList.toggle('mobile-active');
+    }
+
+    // Add intersection observer for better performance
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animation elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
